@@ -1,21 +1,26 @@
 package pages;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage extends AbstractPage {
+/** Страница авторизации */
+public class LoginPage extends HelpdeskBasePage {
 
-    // Обычный поиск элемента
-    private WebElement user = driver.findElement(By.id(""));
+    // todo: элементы страницы
 
-    // Поиск элемента через аннотацию
-    @FindBy(id = "")
-    private WebElement password;
-
-    // todo: остальные элементы страницы
-
-    public void login(String user, String password) {
-        // todo
+    public LoginPage() {
+        PageFactory.initElements(driver, this);
     }
+
+    /**
+     * Авторизация пользователя
+     *
+     * @param user     логин пользователя
+     * @param password пароль пользователя
+     */
+    public void login(String user, String password) {
+        // todo: заполнить поля и нажать кнопку авторизации
+    }
+
+    // todo: методы работы с элементами
+
 }
