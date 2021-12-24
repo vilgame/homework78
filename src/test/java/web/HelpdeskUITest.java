@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 public class HelpdeskUITest {
 
     private WebDriver driver;
+    private Ticket ticket;
 
     @BeforeClass
     public void setup() throws IOException {
@@ -33,7 +34,7 @@ public class HelpdeskUITest {
     @Test
     public void createTicketTest() {
         // Заполняем объект класс Ticket необходимыми тестовыми данными
-        Ticket ticket = buildNewTicket();
+        ticket = buildNewTicket();
 
         // todo: открыть главную страницу
         // todo: создать объект главной страницы и выполнить шаги по созданию тикета
