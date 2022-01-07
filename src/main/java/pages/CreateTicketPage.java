@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /** Страница создания тикета */
-public class CreateTicketPage extends HelpdeskBasePage {
+public class CreateTicketPage extends AbstractPage {
 
     // Способ объявления элементы страницы, через аннотацию
     @FindBy(xpath = "")

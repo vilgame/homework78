@@ -6,9 +6,9 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 /** Страница отдельного тикета */
-public class TicketPage extends HelpdeskBasePage {
+public class TicketPage extends AbstractPage {
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//*[@id=\"id_title\"]")
     WebElement ticketTitle;
 
     // todo: остальные поля тикета
