@@ -7,9 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.AbstractPage;
-import pages.CreateTicketPage;
-import pages.TicketPage;
+import pages.*;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -45,8 +43,12 @@ public class HelpdeskUITest {
         mainMenu.newTicket();
         CreateTicketPage createTicketPage = new CreateTicketPage();
         createTicketPage.createTicket(ticket);
-        // todo: перейти к странице авторизации и выполнить вход
-        // todo: найти созданный тикет и проверить поля
+        TicketPage ticketPage = new TicketPage();
+        ticketPage.logIn(); // todo: перейти к странице авторизации и выполнить вход
+        LoginPage loginPage = new LoginPage();
+        loginPage.login(System.getProperty("user"), System.getProperty("password"));
+        TicketsPage ticketsPage = new TicketsPage(); // todo: найти созданный тикет и проверить поля
+        
 
         // Закрываем текущее окно браузера
 //        driver.close();

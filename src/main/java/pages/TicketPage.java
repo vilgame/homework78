@@ -8,6 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 /** Страница отдельного тикета */
 public class TicketPage extends HelpdeskBasePage {
 
+    @FindBy(xpath = "//a[@id='userDropdown']")
+    WebElement logInBtn;
+
     @FindBy(xpath = "//select[@id='queue']") // todo: остальные поля тикета
     WebElement queue;
 
@@ -25,6 +28,10 @@ public class TicketPage extends HelpdeskBasePage {
 
     public TicketPage() {
         PageFactory.initElements(driver, this);
+    }
+
+    public void logIn() {
+        logInBtn.click();
     }
 
     /** Получить имя тикета */

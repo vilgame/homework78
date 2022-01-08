@@ -44,27 +44,27 @@ public class CreateTicketPage extends HelpdeskBasePage {
         createTicket();
     }
 
-    public void setInputQueue(int value) { // todo: методы заполнения остальных полей
-        Select selectQueue = new Select(inputQueue);
-        selectQueue.getOptions().get(value).click();
+    public void setInputQueue(int inputQueue) { // todo: методы заполнения остальных полей
+        Select selectQueue = new Select(this.inputQueue);
+        selectQueue.getOptions().get(inputQueue).click();
     }
 
     /** Заполнение поля "Summary of the problem" */
-    public void setInputProblemTitle(String value) {
-        inputProblemTitle.sendKeys(value); // todo: заполнить поле
+    public void setInputProblemTitle(String inputProblemTitle) {
+        this.inputProblemTitle.sendKeys(inputProblemTitle); // todo: заполнить поле
     }
 
-    public void setInputDescription(String value) {
-        inputDescription.sendKeys(value);
+    public void setInputDescription(String inputDescription) {
+        this.inputDescription.sendKeys(inputDescription);
     }
 
-    public void setInputPriority(int value) {
-        Select selectPriority = new Select(inputPriority);
-        selectPriority.getOptions().get(value).click();
+    public void setInputPriority(int inputPriority) {
+        Select selectPriority = new Select(this.inputPriority);
+        selectPriority.getOptions().get(inputPriority).click();
     }
 
-    public void setInputEmail(String value) {
-        inputEmail.sendKeys(value);
+    public void setInputEmail(String inputEmail) {
+        this.inputEmail.sendKeys(inputEmail);
     }
 
     /** Зажатие кнопки "Submit Ticket" */
