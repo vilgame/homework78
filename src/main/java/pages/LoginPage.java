@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.support.PageFactory;
 
 /** Страница авторизации */
-public class LoginPage extends AbstractPage {
+public class LoginPage extends HelpdeskBasePage {
 
     // todo: элементы страницы
 

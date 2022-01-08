@@ -1,11 +1,10 @@
 package pages;
 
 import models.Ticket;
-import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.support.PageFactory;
 
 /** Страница со списком тикетов */
-public class TicketsPage extends AbstractPage {
+public class TicketsPage extends HelpdeskBasePage {
 
     // todo: элементы страницы поиска тикетов
 

@@ -1,19 +1,15 @@
 package web;
 
-//import elements.MainMenu;
 import models.Ticket;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.AbstractPage;
-import pages.MainPage;
 
 import java.io.IOException;
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class HelpdeskUITest {
 
@@ -39,9 +35,6 @@ public class HelpdeskUITest {
     public void createTicketTest() {
         // Заполняем объект класс Ticket необходимыми тестовыми данными
         ticket = buildNewTicket();
-        driver.get(System.getProperty("site.url"));
-        MainPage mainPage = PageFactory.initElements(driver, MainPage.class);
-        mainPage.newTicket();
 
         // todo: открыть главную страницу
         // todo: создать объект главной страницы и выполнить шаги по созданию тикета
@@ -49,7 +42,7 @@ public class HelpdeskUITest {
         // todo: найти созданный тикет и проверить поля
 
         // Закрываем текущее окно браузера
-//        driver.close();
+        driver.close();
     }
 
     /**
@@ -66,10 +59,10 @@ public class HelpdeskUITest {
         return ticket;
     }
 
-//    @AfterTest
-//    public void close() {
-//        // Закрываем все окна браузера и освобождаем ресурсы
-//        driver.quit();
-//    }
+    @AfterTest
+    public void close() {
+        // Закрываем все окна браузера и освобождаем ресурсы
+        driver.quit();
+    }
 
 }
