@@ -11,15 +11,17 @@ public class MainMenu {
     private WebDriver driver;
 
     // Поиск элементов без аннотации
-    private WebElement newTicketBtn = driver.findElement(By.xpath(""));
+    private WebElement newTicketBtn;
 
     // todo: остальные элементы меню
 
     public MainMenu(WebDriver driver) {
         this.driver = driver;
+        newTicketBtn = driver.findElement(By.xpath (".//a[@href='/tickets/submit/']"));
     }
 
     public void newTicket() {
+        newTicketBtn.click();
         // todo: нажать кнопку создания нового тикета
     }
 

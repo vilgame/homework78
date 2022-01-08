@@ -4,11 +4,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 /** Страница отдельного тикета */
 public class TicketPage extends HelpdeskBasePage {
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = "//select[@id='queue']")
+    WebElement queue;
+
+    @FindBy(xpath = "//input[@id='id_title']")
     WebElement ticketTitle;
 
     // todo: остальные поля тикета
