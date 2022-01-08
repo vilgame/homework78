@@ -8,6 +8,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import pages.AbstractPage;
+import pages.CreateTicketPage;
 import pages.TicketPage;
 
 import java.io.IOException;
@@ -42,8 +43,8 @@ public class HelpdeskUITest {
         driver.get(System.getProperty("site.url")); // todo: открыть главную страницу
         mainMenu = new MainMenu(driver); // todo: создать объект главной страницы и выполнить шаги по созданию тикета
         mainMenu.newTicket();
-        ticketPage = new TicketPage();
-
+        CreateTicketPage createTicketPage = new CreateTicketPage();
+        createTicketPage.createTicket(ticket);
         // todo: перейти к странице авторизации и выполнить вход
         // todo: найти созданный тикет и проверить поля
 
@@ -61,7 +62,7 @@ public class HelpdeskUITest {
         ticket.setQueue(2); // todo: заполнить остальные необходимые поля тикета
         ticket.setTitle("Chief, we're done for!");
         ticket.setDescription("The cast is going to be removed, the customer's leaving!");
-        ticket.setPriority(1);
+        ticket.setPriority(0);
         ticket.setEmail("go@go.go");
         return ticket;
     }

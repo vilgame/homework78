@@ -4,20 +4,23 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 
 /** Страница отдельного тикета */
 public class TicketPage extends HelpdeskBasePage {
 
-    @FindBy(xpath = "//select[@id='queue']")
+    @FindBy(xpath = "//select[@id='queue']") // todo: остальные поля тикета
     WebElement queue;
 
     @FindBy(xpath = "//input[@id='id_title']")
     WebElement ticketTitle;
 
-    // todo: остальные поля тикета
+    @FindBy(xpath = "//textarea[@id='id_body']]")
+    WebElement description;
 
-    @FindBy(xpath = "//th[text()='Submitter E-Mail']")
+    @FindBy(xpath = "//select[@id='id_priority']]")
+    WebElement priority;
+
+    @FindBy(xpath = "//input[@id='id_submitter_email']")
     WebElement email;
 
     public TicketPage() {
