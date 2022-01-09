@@ -48,7 +48,9 @@ public class HelpdeskUITest {
         LoginPage loginPage = new LoginPage();
         loginPage.login(System.getProperty("user"), System.getProperty("password"));
         TicketsPage ticketsPage = new TicketsPage(); // todo: найти созданный тикет и проверить поля
-        
+        ticketsPage.openTicket(ticket);
+//        Ticket ticketCheck = buildNewTicket(ticketPage);
+
 
         // Закрываем текущее окно браузера
 //        driver.close();

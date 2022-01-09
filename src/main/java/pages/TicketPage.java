@@ -11,19 +11,19 @@ public class TicketPage extends HelpdeskBasePage {
     @FindBy(xpath = "//a[@id='userDropdown']")
     WebElement logInBtn;
 
-    @FindBy(xpath = "//select[@id='queue']") // todo: остальные поля тикета
+    @FindBy(xpath = "//th[contains(.,'Queue')]") // todo: остальные поля тикета
     WebElement queue;
 
-    @FindBy(xpath = "//input[@id='id_title']")
+    @FindBy(xpath = "//h3']")
     WebElement ticketTitle;
 
-    @FindBy(xpath = "//textarea[@id='id_body']]")
+    @FindBy(xpath = "//h4[text()='Description']")
     WebElement description;
 
-    @FindBy(xpath = "//select[@id='id_priority']]")
+    @FindBy(xpath = "//th[text()='Priority'")
     WebElement priority;
 
-    @FindBy(xpath = "//input[@id='id_submitter_email']")
+    @FindBy(xpath = "//th[text()='Submitter E-Mail']")
     WebElement email;
 
     public TicketPage() {
