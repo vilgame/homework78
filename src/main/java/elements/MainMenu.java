@@ -17,7 +17,7 @@ public class MainMenu {
 
     public MainMenu(WebDriver driver) {
         this.driver = driver;
-        newTicketBtn = driver.findElement(By.xpath (".//a[@href='/tickets/submit/']"));
+        newTicketBtn = driver.findElement(By.xpath ("//a[@href='/tickets/submit/']"));
     }
 
     public void newTicket() {

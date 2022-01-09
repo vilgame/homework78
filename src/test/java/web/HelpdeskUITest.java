@@ -4,6 +4,7 @@ import elements.MainMenu;
 import models.Ticket;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -43,24 +44,21 @@ public class HelpdeskUITest {
         mainMenu.newTicket();
         CreateTicketPage createTicketPage = new CreateTicketPage();
         createTicketPage.createTicket(ticket);
-        TicketPage ticketPage = new TicketPage();
+        ticketPage = new TicketPage();
         ticketPage.logIn(); // todo: перейти к странице авторизации и выполнить вход
         LoginPage loginPage = new LoginPage();
         loginPage.login(System.getProperty("user"), System.getProperty("password"));
         TicketsPage ticketsPage = new TicketsPage(); // todo: найти созданный тикет и проверить поля
         ticketsPage.openTicket(ticket);
-
-
-
-//        System.out.println(ticketPage.getQueue());
-        System.out.println(ticketPage.getTicketTitle());
-        System.out.println(ticketPage.getDescription());
-//        System.out.println(ticketCheck.getPriority());
-        System.out.println(ticketPage.getEmail());
-
+        Assert.assertTrue(ticketPage.getQueue().contains(ticket.getQueue()), "Queues are not equal");
+        Assert.assertTrue(ticketPage.getTicketTitle().contains(ticket.getTitle()), "Titles are not equal");
+        Assert.assertEquals(ticketPage.getDescription(), ticket.getDescription(), "Descriptions are not equal");
+        Assert.assertEquals(ticketPage.getPriority(), ticket.getPriority()+1, "Priorities are not equal");
+        Assert.assertEquals(ticketPage.getEmail(), ticket.getEmail(), "Emails are not equal");
+        ticketPage.deleteTicket();
 
         // Закрываем текущее окно браузера
-//        driver.close();
+        driver.close();
     }
 
     /**
@@ -78,10 +76,9 @@ public class HelpdeskUITest {
         return ticket;
     }
 
-//    @AfterTest
-//    public void close() {
-//        // Закрываем все окна браузера и освобождаем ресурсы
-//        driver.quit();
-//    }
-
+    @AfterTest
+    public void close() {
+        // Закрываем все окна браузера и освобождаем ресурсы
+        driver.quit();
+    }
 }
