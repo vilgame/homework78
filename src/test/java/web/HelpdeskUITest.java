@@ -49,7 +49,14 @@ public class HelpdeskUITest {
         loginPage.login(System.getProperty("user"), System.getProperty("password"));
         TicketsPage ticketsPage = new TicketsPage(); // todo: найти созданный тикет и проверить поля
         ticketsPage.openTicket(ticket);
-//        Ticket ticketCheck = buildNewTicket(ticketPage);
+
+
+
+//        System.out.println(ticketPage.getQueue());
+        System.out.println(ticketPage.getTicketTitle());
+        System.out.println(ticketPage.getDescription());
+//        System.out.println(ticketCheck.getPriority());
+        System.out.println(ticketPage.getEmail());
 
 
         // Закрываем текущее окно браузера
@@ -63,8 +70,8 @@ public class HelpdeskUITest {
      */
     protected Ticket buildNewTicket() {
         Ticket ticket = new Ticket();
-        ticket.setQueue(2); // todo: заполнить остальные необходимые поля тикета
-        ticket.setTitle("Chief, we're done for!");
+        ticket.setQueue("Some Product"); // todo: заполнить остальные необходимые поля тикета
+        ticket.setTitle("Chief, we are done for!");
         ticket.setDescription("The cast is going to be removed, the customer's leaving!");
         ticket.setPriority(0);
         ticket.setEmail("go@go.go");

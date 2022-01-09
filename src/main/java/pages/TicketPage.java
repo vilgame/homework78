@@ -11,16 +11,16 @@ public class TicketPage extends HelpdeskBasePage {
     @FindBy(xpath = "//a[@id='userDropdown']")
     WebElement logInBtn;
 
-    @FindBy(xpath = "//th[contains(.,'Queue')]") // todo: остальные поля тикета
+    @FindBy(xpath = "//text()[contains(.,'Queue')]") // todo: остальные поля тикета
     WebElement queue;
 
-    @FindBy(xpath = "//h3']")
+    @FindBy(xpath = "//th/h3")
     WebElement ticketTitle;
 
-    @FindBy(xpath = "//h4[text()='Description']")
+    @FindBy(xpath = "//td[@id='ticket-description']/p")
     WebElement description;
 
-    @FindBy(xpath = "//th[text()='Priority'")
+    @FindBy(xpath = "//td[@class='table-warning']")
     WebElement priority;
 
     @FindBy(xpath = "//th[text()='Submitter E-Mail']")
@@ -34,18 +34,28 @@ public class TicketPage extends HelpdeskBasePage {
         logInBtn.click();
     }
 
+//    public String getQueue() { // todo: остальные методы получения значений полей
+//        return queue.getText();
+//    }
+
     /** Получить имя тикета */
     public String getTicketTitle() {
         return ticketTitle.getText();
     }
+
+    public String getDescription() {
+        return description.getText();
+    }
+
+//    public int getPriority() {
+//        return Integer.parseInt(priority.getText()+1);
+//    }
 
     /** Получить адрес почты */
     public String getEmail() {
         // Получаем значение адреса почты
         return getValue(email);
     }
-
-    // todo: остальные методы получения значений полей
 
     /**
      * Получить значение элемента таблицы

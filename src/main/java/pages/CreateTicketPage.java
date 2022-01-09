@@ -44,9 +44,9 @@ public class CreateTicketPage extends HelpdeskBasePage {
         createTicket();
     }
 
-    public void setInputQueue(int inputQueue) { // todo: методы заполнения остальных полей
+    public void setInputQueue(String inputQueue) { // todo: методы заполнения остальных полей
         Select selectQueue = new Select(this.inputQueue);
-        selectQueue.getOptions().get(inputQueue).click();
+        selectQueue.selectByVisibleText(inputQueue);
     }
 
     /** Заполнение поля "Summary of the problem" */

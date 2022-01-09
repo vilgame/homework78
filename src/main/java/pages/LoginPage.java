@@ -14,7 +14,7 @@ public class LoginPage extends HelpdeskBasePage {
     @FindBy(xpath = "//input[@id='password']")
     WebElement password;
 
-    @FindBy(xpath = "//input[@class='btn btn-lg btn-primary btn-block']")
+    @FindBy(xpath = "//input[contains(@class, 'btn-lg')]")
     WebElement loginBtn;
 
     public LoginPage() {

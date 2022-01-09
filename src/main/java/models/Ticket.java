@@ -6,7 +6,7 @@ import java.util.Objects;
 public class Ticket {
 
     /** Название проблемы */
-    private int queue; // todo: остальные поля необходимые для заполнения тикета
+    private String queue; // todo: остальные поля необходимые для заполнения тикета
     private String title;
     private String description;
     private int priority;
@@ -22,11 +22,11 @@ public class Ticket {
         this.title = title;
     }
 
-    public int getQueue() { // todo: методы get и set для остальных полей
+    public String getQueue() { // todo: методы get и set для остальных полей
         return queue;
     }
 
-    public void setQueue(int queue) {
+    public void setQueue(String queue) {
         this.queue = queue;
     }
 
