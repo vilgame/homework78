@@ -1,7 +1,10 @@
 package web;
 
 import elements.MainMenu;
+import io.qameta.allure.Attachment;
 import models.Ticket;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -80,5 +83,10 @@ public class HelpdeskUITest {
     public void close() {
         // Закрываем все окна браузера и освобождаем ресурсы
         driver.quit();
+    }
+
+    @Attachment
+    public byte[] attachScreenshot() {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 }

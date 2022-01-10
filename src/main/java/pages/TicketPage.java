@@ -1,6 +1,10 @@
 package pages;
 
+import io.qameta.allure.Attachment;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -34,8 +38,10 @@ public class TicketPage extends HelpdeskBasePage {
         PageFactory.initElements(driver, this);
     }
 
+    @Step("Click button Log In")
     public void logIn() {
         logInBtn.click();
+        attachScreenshot();
     }
 
     public String getQueue() { // todo: остальные методы получения значений полей
@@ -61,9 +67,11 @@ public class TicketPage extends HelpdeskBasePage {
         return getValue(email);
     }
 
+    @Step("Delete ticket")
     public void deleteTicket() {
         deleteBtn.click();
         deleteBtn.click();
+        attachScreenshot();
     }
 
     /**
@@ -80,6 +88,11 @@ public class TicketPage extends HelpdeskBasePage {
                 .getText()
                 // Обрезаем лишние пробелы
                 .trim();
+    }
+
+    @Attachment
+    public byte[] attachScreenshot() {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 
 }

@@ -1,7 +1,11 @@
 package pages;
 
+import io.qameta.allure.Attachment;
+import io.qameta.allure.Step;
 import models.Ticket;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -20,10 +24,18 @@ public class TicketsPage extends HelpdeskBasePage {
     }
 
     /** Ищем строку с тикетом и нажимаем на нее */
+    @Step("Search and click ticket")
     public void openTicket(Ticket ticket) { // todo: найти и открыть тикет
         searchField.sendKeys(ticket.getTitle());
         searchField.sendKeys(Keys.ENTER);
+        attachScreenshot();
         selectTicket.click();
+        attachScreenshot();
+    }
+
+    @Attachment
+    public byte[] attachScreenshot() {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
     }
 
 }

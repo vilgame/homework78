@@ -1,9 +1,9 @@
 package elements;
 
+import io.qameta.allure.Attachment;
+import io.qameta.allure.Step;
 import models.Ticket;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 /** Элемент главного меню */
 public class MainMenu {
@@ -20,9 +20,11 @@ public class MainMenu {
         newTicketBtn = driver.findElement(By.xpath ("//a[@href='/tickets/submit/']"));
     }
 
-    public void newTicket() {
+    @Step("Click button NewTicket")
+    public void newTicket() { // todo: нажать кнопку создания нового тикета
         newTicketBtn.click();
-        // todo: нажать кнопку создания нового тикета
+        attachScreenshot();
+
     }
 
     public void logIn() {
@@ -45,4 +47,8 @@ public class MainMenu {
         // todo: нажать кнопку поиска
     }
 
+    @Attachment
+    public byte[] attachScreenshot() {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    }
 }
